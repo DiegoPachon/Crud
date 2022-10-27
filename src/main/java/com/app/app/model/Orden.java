@@ -18,6 +18,9 @@ public class Orden {
     private Integer cantidad;
     private Long total;
 
+    @OneToMany(mappedBy = "fruta")
+    Set<DetalleOrden> detalleOrden;
+
     public void setId(Long id) {
         this.id = id;
     }
