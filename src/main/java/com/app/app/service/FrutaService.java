@@ -17,7 +17,7 @@ import java.util.Optional;
 @Service
 public class FrutaService {
     @Autowired
-    private IFrutaRepository iFrutaRepository;
+    private static IFrutaRepository iFrutaRepository;
 
     @PostMapping
     public Fruta saveFruta (Fruta fruta){
@@ -30,7 +30,7 @@ public class FrutaService {
     public Page<Fruta> getAllFruta(Integer page, Integer size, Boolean enablePagination){
         return iFrutaRepository.findAll(enablePagination ? PageRequest.of(page,size): Pageable.unpaged());
     }
-    public Optional<Fruta> findById(Long id){
+    public static Optional<Fruta> findById(Long id){
         return iFrutaRepository.findById(id);
     }
     @DeleteMapping
